@@ -23,6 +23,9 @@ public class PlayerCon : MonoBehaviour
 
     Rigidbody rb;
 
+    public Camera playerCamera;
+    public GameObject projectilePrefab;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -42,6 +45,13 @@ public class PlayerCon : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject projectileObject = Instantiate (projectilePrefab);
+            projectileObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
+            projectileObject.transform.forward = playerCamera.transform.forward;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

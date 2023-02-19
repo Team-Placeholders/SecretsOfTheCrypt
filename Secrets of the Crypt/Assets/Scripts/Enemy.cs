@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    //public NavMeshAgent enemy;
-    //public Transform Player;
+    public NavMeshAgent enemy;
+    public Transform Player;
 
     void Start()
     {
@@ -16,6 +16,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //enemy.SetDestination(Player.position);
+        enemy.SetDestination(Player.position);
     }
 }
