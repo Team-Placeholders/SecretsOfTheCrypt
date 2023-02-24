@@ -15,5 +15,10 @@ public class Projectile : MonoBehaviour
     {
         //Make Bullet Move
         transform.position += transform.forward * speed * Time.deltaTime;
+
+        if (transform.position.magnitude > 30.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

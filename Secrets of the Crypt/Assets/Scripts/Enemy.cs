@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
 
-
     }
 
     // Update is called once per frame
@@ -62,19 +61,18 @@ public class Enemy : MonoBehaviour
 
 
 
-
-        if (!alreadyAttacked)
+        /*if (!alreadyAttacked)
         {
 
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
+        }*/
     }
-    private void ResetAttack()
-    {
-        alreadyAttacked = false;
-    }
+    //private void ResetAttack()
+    //{
+    //    alreadyAttacked = false;
+    //}
     void GotoNextPoint()
     {
         // Returns if no points have been set up
@@ -94,5 +92,15 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+    IEnumerator OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+            yield return new WaitForSeconds (4f);
+            gameObject.GetComponent<NavMeshAgent>().isStopped = false;
+        }
     }
 }

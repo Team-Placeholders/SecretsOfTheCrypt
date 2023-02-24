@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Macguffin
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - 
-  - whatisGround
+  - whatIsGround
   - whatisPlayer
   - 
   - 

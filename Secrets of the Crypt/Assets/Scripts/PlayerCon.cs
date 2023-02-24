@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCon : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class PlayerCon : MonoBehaviour
     public Camera playerCamera;
     public GameObject projectilePrefab;
 
+    float gunheat;
+    const float fireRate = 0.9f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,11 +50,17 @@ public class PlayerCon : MonoBehaviour
         else
             rb.drag = 0;
 
+        if (gunheat > 0) gunheat -= Time.deltaTime;
+
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject projectileObject = Instantiate (projectilePrefab);
-            projectileObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
-            projectileObject.transform.forward = playerCamera.transform.forward;
+            if (gunheat <= 0)
+            {
+                GameObject projectileObject = Instantiate (projectilePrefab);
+                projectileObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
+                projectileObject.transform.forward = playerCamera.transform.forward;
+                gunheat = fireRate;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -93,7 +103,15 @@ public class PlayerCon : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Macguffin"))
         {
-            other.gameObject.SetActive(false);
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene(3);
         }
     }
 }
