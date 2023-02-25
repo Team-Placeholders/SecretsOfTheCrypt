@@ -30,6 +30,8 @@ public class PlayerCon : MonoBehaviour
     float gunheat;
     const float fireRate = 0.9f;
 
+    public AudioSource footstepsSound;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -52,7 +54,7 @@ public class PlayerCon : MonoBehaviour
 
         if (gunheat > 0) gunheat -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (gunheat <= 0)
             {
@@ -63,11 +65,20 @@ public class PlayerCon : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            Application.Quit();
+                footstepsSound.enabled = true;
         }
-    }
+        else
+        {
+            footstepsSound.enabled = false;
+        }
+
+    /*if (Input.GetKeyDown(KeyCode.Escape))
+    {
+        Application.Quit();
+    }*/
+}
 
     private void FixedUpdate()
     {
@@ -103,7 +114,7 @@ public class PlayerCon : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Macguffin"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 
@@ -111,7 +122,7 @@ public class PlayerCon : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
         }
     }
 }
