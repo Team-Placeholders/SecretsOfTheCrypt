@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 1055659009930668763}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1055659008902210769
 MonoBehaviour:
@@ -157,11 +157,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f1f8a9c8bc68f2741ba6b6398bbb2370, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 424898b0256468341b4e5d5c6b518b98, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

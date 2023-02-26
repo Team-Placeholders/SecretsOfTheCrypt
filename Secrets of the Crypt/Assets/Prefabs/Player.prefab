@@ -35,7 +35,7 @@ Transform:
   - {fileID: 8694768627220050894}
   - {fileID: 8694768626107692940}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8694768625855741760
 Rigidbody:
@@ -74,6 +74,7 @@ MonoBehaviour:
   orientation: {fileID: 8694768627220050894}
   playerCamera: {fileID: 0}
   projectilePrefab: {fileID: 8614218294664152082, guid: 76a4476dc6cbc054f8346004920b6860, type: 3}
+  footstepsSound: {fileID: 0}
 --- !u!82 &-431943373544799483
 AudioSource:
   m_ObjectHideFlags: 0
@@ -84,7 +85,7 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e1fe67cbf35712844b777c0d42d4184a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 161f2b14c9417004d83af2abd2e3de1d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
